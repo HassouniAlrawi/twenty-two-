@@ -52,7 +52,7 @@
                 <!-- Service 1 -->
                 <div class="service-card">
                     <div class="service-img">
-                        <img src="new1.JPG" alt="ابتسامة المشاهير">
+                        <img src="img/new1.JPG" alt="ابتسامة المشاهير">
                     </div>
                     <div class="service-content">
                         <h3>ابتسامة المشاهير</h3>
@@ -74,10 +74,10 @@
                 <!-- Service 3 -->
                 <div class="service-card">
                     <div class="service-img">
-                        <img src="m3.jpg" alt="زراعة الأسنان">
+                        <img src="img/neo.png" alt="زراعة الأسنان">
                     </div>
                     <div class="service-content">
-                        <h3>زراعة الأسنان بدون جراحة</h3>
+                        <h3>زراعة الأسنان</h3>
                         <p>بتقنيات متقدمة لضمان راحة وسرعة في التعافي.</p>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                 <!-- Service 6 -->
                 <div class="service-card">
                     <div class="service-img">
-                        <img src="https://plus.unsplash.com/premium_photo-1674179075503-1ae4d0c278dd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="تبييض الأسنان">
+                        <img src="IMG_20250504_085847_005.JPG" alt="تبييض الأسنان">
                     </div>
                     <div class="service-content">
                         <h3>تبييض الأسنان بالليزر</h3>
@@ -128,7 +128,7 @@
                 <!-- Service 7 -->
                 <div class="service-card">
                     <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1660732205495-f65510d8180e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="تنظيف الأسنان">
+                        <img src="nweh.png" alt="تنظيف الأسنان">
                     </div>
                     <div class="service-content">
                         <h3>تنظيف الأسنان بأحدث التقنيات</h3>
@@ -139,7 +139,7 @@
                 <!-- Service 8 -->
                 <div class="service-card">
                     <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1642844613096-7b743b7d9915?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="علاجات أخرى">
+                        <img src="IMG_8431.JPG" alt="علاجات أخرى">
                     </div>
                     <div class="service-content">
                         <h3>علاجات أخرى حسب احتياج كل حالة</h3>
@@ -252,20 +252,47 @@
         </div>
         
         <div class="gallery-grid">
+            <!-- الصور -->
             <div class="gallery-item">
-                <img src="n2.JPG" alt="عمل 1">
+                <img src="IMG_8431.JPG" alt="عمل 1">
             </div>
             <div class="gallery-item">
-                <img src="gallery2.jpg" alt="عمل 2">
+                <img src="img/IMG_20250504_015836_281.jpg" alt="عمل 2">
             </div>
-            <div class="gallery-item">
-                <img src="gallery3.jpg" alt="عمل 3">
+            
+            <!-- الفيديوهات مع تأثيرات متقدمة -->
+            <div class="gallery-item video-container">
+                <video class="gallery-video" loop muted playsinline poster="video-poster1.jpg">
+                    <source src="IMG_9078 (1).MP4" type="video/MP4">
+                </video>
+                <div class="video-controls">
+                    <button class="play-btn"><i class="fas fa-play"></i></button>
+                    <div class="video-time">0:00 / 0:00</div>
+                </div>
             </div>
+            
             <div class="gallery-item">
-                <img src="gallery4.jpg" alt="عمل 4">
+                <img src="img/IMG_20250504_020141_464.jpg" alt="عمل 3">
             </div>
+            
+            <div class="gallery-item video-container">
+                <video class="gallery-video" loop muted playsinline poster="video-poster2.jpg">
+                    <source src="IMG_9214 (1).MP4" type="video/MP4">
+                </video>
+                <div class="video-controls">
+                    <button class="play-btn"><i class="fas fa-play"></i></button>
+                    <div class="video-time">0:00 / 0:00</div>
+                </div>
+            </div>
+            
             <div class="gallery-item">
-                <img src="gallery5.jpg" alt="عمل 5">
+                <img src="nweh.png" alt="عمل 4">
+            </div>
+            
+            
+            
+            <div class="gallery-item">
+                <img src="img/IMG_20250504_021650_852.DNG" alt="عمل 5">
             </div>
         </div>
     </div>
@@ -567,6 +594,47 @@ function nextTestimonial() {
 setInterval(nextTestimonial, 5000);
 showTestimonial(0);
 */
+// إضافة JavaScript للتحكم في الفيديو
+document.addEventListener('DOMContentLoaded', function() {
+    const videoContainers = document.querySelectorAll('.video-container');
+    
+    videoContainers.forEach(container => {
+        const video = container.querySelector('.gallery-video');
+        const playBtn = container.querySelector('.play-btn');
+        const videoTime = container.querySelector('.video-time');
+        
+        // تحديث وقت الفيديو
+        video.addEventListener('timeupdate', function() {
+            const currentTime = formatTime(video.currentTime);
+            const duration = formatTime(video.duration);
+            videoTime.textContent = `${currentTime} / ${duration}`;
+        });
+        
+        // تشغيل/إيقاف الفيديو
+        playBtn.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                video.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        });
+        
+        // عند انتهاء الفيديو
+        video.addEventListener('ended', function() {
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        });
+    });
+    
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+});
+
+
     </script>
 </body>
 </html>
