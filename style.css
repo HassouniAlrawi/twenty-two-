@@ -221,6 +221,44 @@
             color: var(--light-text);
             margin-bottom: 15px;
         }
+        
+        .service-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+.booking-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.booking-btn:hover {
+    background-color: #3a7bd5; /* لون أغمق قليلاً */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.service-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 250px); /* يتناسب مع ارتفاع الصورة */
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+}
 
         /* About Section */
         .about {
